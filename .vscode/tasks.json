@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "make",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "build (debug)",
+      "type": "shell",
+      "command": "make clean && make CFLAGS='-g -O0 -Wall -Wextra' STRIP=true",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "run",
+      "type": "shell",
+      "command": "./gametimer",
+      "dependsOn": "build",
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "clean",
+      "type": "shell",
+      "command": "make clean",
+      "problemMatcher": []
+    }
+  ]
+}
